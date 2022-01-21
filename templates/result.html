@@ -13,9 +13,9 @@
     </div>
     <div class="col-12 mt-5">
         <div class="slidecontainer">
-            <input type="range" min="1" max="10" value="1" class="slider" id="slider">
+            <input type="range" min="1" max="7" value="1" class="slider" id="slider">
         </div>
-        <p id='info' class='fs-4'> Compression ratio {{w}} : <span id='pc'>1</span> </p>
+        <p id='info' class='fs-4'> Compression ratio {{w}}:<span id='pc'>1</span> </p>
     </div>
     
     
@@ -32,7 +32,7 @@
     function onClick(e) {
         var value = rangeInput.value;
         var oldSrc = resImg.src
-        var newSrc = `${oldSrc.split('-')[0]}-${value}.${oldSrc.split('.').at(-1)}`
+        var newSrc = `${oldSrc.split('new-')[0]}new-${value}.${oldSrc.split('.').at(-1)}`
         resImg.setAttribute('src', newSrc)
         pc.innerHTML = listPC[value - 1]
     }

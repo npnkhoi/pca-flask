@@ -39,10 +39,9 @@ def batch_pca(path):
   img = Image.open(path)
   img = np.array(img)
   h, w, _ = img.shape
-  NUM_SEGMENTS = 10
-  LENGTH_SEGMENT =  w // 10
+  NUM_SEGMENTS = 7
 
-  step = w ** (1 / (NUM_SEGMENTS - 1))
+  step = min(w, 200) ** (1 / (NUM_SEGMENTS - 1))
   pc = [math.floor(step ** i) for i in range(NUM_SEGMENTS)]
   for i, x in enumerate(pc):
     new_img = compress_image(img, 'pca', n_components=x)    
