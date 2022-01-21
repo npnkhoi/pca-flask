@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<div class="row">
+    <div class="col-6">
+        <h2>Original image</h2>
+        <img src="{{url_for('static', filename='original.jpg')}}" alt="Original image" class='w-100'>
+    </div>
+
+    <div class="col-6">
+        <h2>Reconstructed image</h2>
+        <img src="{{url_for('static', filename='new-1.jpg')}}" alt="Resconstructed image" id='res' class='w-100'>
+    </div>
+    <div class="col-12 mt-5">
+        <div class="slidecontainer">
+            <input type="range" min="1" max="10" value="1" class="slider" id="slider">
+        </div>
+        <p id='info' class='fs-4'> Compression ratio {{w}} : <span id='pc'>1</span> </p>
+    </div>
+    
+    
+</div>
+<script>
+    var rangeInput = document.getElementById('slider')
+    var resImg = document.getElementById('res')
+    var pc = document.getElementById('pc')
+    rangeInput.addEventListener('click', onClick, false)
+    var listPC = '{{pc}}'
+    listPC = listPC.slice(1, listPC.length - 1)
+    listPC = listPC.split(', ')
+    console.log(listPC);
+    function onClick(e) {
+        var value = rangeInput.value;
+        var oldSrc = resImg.src
+        var newSrc = `${oldSrc.split('-')[0]}-${value}.${oldSrc.split('.').at(-1)}`
+        resImg.setAttribute('src', newSrc)
+        pc.innerHTML = listPC[value - 1]
+    }
+</script>
+{% endblock %}
