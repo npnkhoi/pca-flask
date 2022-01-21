@@ -10,3 +10,5 @@ From the pca-flask directory, run:
 python app.py
 ```
 Then the app can be accessed at http://127.0.0.1:5000/
+
+See the demo at `pca-demo.mp4`
