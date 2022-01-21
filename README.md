@@ -2,7 +2,7 @@
 
 ## Installation
 
-You can use `pipenv` to install the neccessary packages shown in Pipfile. Otherwise, please install the package listed in `Pipfile`.
+You can use `pipenv` to install the neccessary packages shown in Pipfile. Otherwise, please install the packages listed in `Pipfile`.
 
 ## Run
 From the pca-flask directory, run:
